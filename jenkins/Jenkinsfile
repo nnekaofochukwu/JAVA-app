@@ -17,6 +17,8 @@ pipeline {
             }
             post {
                 always {
+                    // List the contents of the target directory
+                    sh 'ls -la target/surefire-reports'
                     // Publish JUnit test results
                     junit 'target/surefire-reports/*.xml'
                 }
